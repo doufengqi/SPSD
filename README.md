@@ -52,3 +52,38 @@ print(torch.cuda.is_available())
         -0003.txt
         -...
 ```
+
+## 2. 修改配置文件neu_det.yaml
+
+### 2.1. 修改数据集路径 (绝对路径)
+
+    train: E:\Project\YOLO\yolov7\data\neu_det\images\train  
+    val: E:\Project\YOLO\yolov7\data\neu_det\images\val  
+    test: E:\Project\YOLO\yolov7\data\neu_det\images\val
+
+## 3. 训练
+
+```
+#以数据集neu 显卡3060 6G为例
+
+python train.py
+--cfg
+cfg/training/yolov7_neu.yaml
+--data
+data/neu_det.yaml
+--device
+0
+--batch-size
+8
+--workers
+2
+--save_period
+5
+--epochs
+100
+--weights
+weights/yolov7.pt
+--img-size
+224
+224
+```
